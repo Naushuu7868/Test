@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Coding Quiz</title>
+    <link rel="stylesheet" href="quiz_styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <h1>Advanced Coding Quiz</h1>
+            <p class="description">Test your programming skills with 25 challenging questions</p>
+            <div class="quiz-info">
+                <div class="info-item">
+                    <span class="icon">⏱️</span>
+                    <span>10 Minutes</span>
+                </div>
+                <div class="info-item">
+                    <span class="icon">❓</span>
+                    <span>25 Questions</span>
+                </div>
+                <div class="info-item">
+                    <span class="icon">🎯</span>
+                    <span>Multiple Topics</span>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button id="start-btn" class="btn primary-btn">Start Quiz</button>
+                <button id="view-tests-btn" class="btn secondary-btn">View All Tests</button>
+            </div>
+        </div>
+
+        <!-- All Tests Screen -->
+        <div id="all-tests-screen" class="screen">
+            <h2>All Tests & Certificates</h2>
+            <div class="tests-container">
+                <div id="completed-tests" class="tests-section">
+                    <h3>Completed Tests</h3>
+                    <div class="test-list" id="completed-tests-list">
+                        <!-- Completed tests will be inserted here -->
+                    </div>
+                </div>
+                <div id="available-tests" class="tests-section">
+                    <h3>Available Tests</h3>
+                    <div class="test-list">
+                        <div class="test-card">
+                            <div class="test-icon">📝</div>
+                            <div class="test-info">
+                                <h4>Advanced Coding Quiz</h4>
+                                <p>25 Questions • 10 Minutes</p>
+                            </div>
+                            <button class="btn primary-btn start-test-btn">Start Test</button>
+                        </div>
+                        <!-- Add more test cards here as needed -->
+                    </div>
+                </div>
+            </div>
+            <button id="back-to-home" class="btn secondary-btn">Back to Home</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="screen">
+            <div class="header">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress" class="progress"></div>
+                    </div>
+                    <span id="question-counter">Question 1/25</span>
+                </div>
+                <div class="timer">
+                    <span id="time-left">10:00</span>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h2 id="question" class="question"></h2>
+                <div id="options" class="options">
+                    <!-- Options will be inserted here -->
+                </div>
+            </div>
+
+            <button id="next-btn" class="btn primary-btn" disabled>Next Question</button>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen">
+            <div class="certificate">
+                <div class="certificate-header">
+                    <h2>Certificate of Completion</h2>
+                    <p class="date" id="completion-date"></p>
+                </div>
+                
+                <div class="certificate-body">
+                    <div class="certificate-title">Advanced Coding Quiz</div>
+                    <p class="recipient">This certifies that</p>
+                    <p class="participant">Participant</p>
+                    <p class="completion-text">has completed the Advanced Coding Quiz with the following results:</p>
+                    
+                    <div class="results">
+                        <div class="result-item">
+                            <span>Total Questions:</span>
+                            <span>25</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Correct Answers:</span>
+                            <span id="correct-answers">0</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Wrong Answers:</span>
+                            <span id="wrong-answers">0</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Percentage:</span>
+                            <span id="percentage">0%</span>
+                        </div>
+                    </div>
+
+                    <p id="motivation-message" class="motivation"></p>
+                </div>
+                
+                <div class="certificate-footer">
+                    <div class="seal">🏆</div>
+                </div>
+            </div>
+            <button id="download-pdf-btn" class="btn primary-btn">
+                <span class="download-icon">📥</span> Download Certificate (PDF)
+            </button>
+        </div>
+    </div>
+    <!-- Load libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <!-- Load application scripts -->
+    <script src="quiz_questions.js"></script>
+    <script src="quiz_script.js"></script>
+</body>
+</html>
